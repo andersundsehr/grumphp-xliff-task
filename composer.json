@@ -1,0 +1,29 @@
+{
+    "name": "andersundsehr/grumphp-xliff-task",
+    "description": "GrumPHP task to lint xlf/xliff Files",
+    "type": "library",
+    "license": "Beerware",
+    "authors": [
+        {
+            "name": "Matthias Vogel",
+            "email": "m.vogel@andersundsehr.com",
+            "homepage": "http://andersundsehr.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/andersundsehr/grumphp-bom-task/issues"
+    },
+    "autoload":{
+        "psr-4":{
+            "AUS\\GrumPHPXliffTask\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.6",
+        "phpro/grumphp": "0.9.*"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "2.6.*",
+        "friendsofphp/php-cs-fixer": "1.11.*"
+    }
+}
