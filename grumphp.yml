@@ -29,8 +29,6 @@ parameters:
             level: "psr2"
             verbose: true
         yamllint: ~
-        aus_bom_fixer:
-            metadata:
-                priority: 1
+        xlifflint: ~
     extensions:
-        - AUS\GrumPHPBomTask\ExtensionLoader
+        - AUS\GrumPHPXliffTask\ExtensionLoader
