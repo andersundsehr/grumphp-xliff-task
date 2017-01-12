@@ -10,6 +10,11 @@
             "homepage": "http://andersundsehr.com"
         }
     ],
+    "config":{
+        "platform":{
+            "php": "5.6"
+        }
+    },
     "support": {
         "issues": "https://github.com/andersundsehr/grumphp-bom-task/issues"
     },
