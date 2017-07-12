@@ -30,4 +30,4 @@ to:
 ````
 
 ### composer:
-``composer require --dev andersundsehr/grumphp-xliff-task``
+``composer require --dev pluswerk/grumphp-xliff-task``
