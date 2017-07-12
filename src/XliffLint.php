@@ -1,5 +1,6 @@
 <?php
-namespace AUS\GrumPHPXliffTask;
+
+namespace PLUS\GrumPHPXliffTask;
 
 use GrumPHP\Exception\RuntimeException;
 use GrumPHP\Runner\TaskResult;
@@ -7,7 +8,6 @@ use GrumPHP\Task\AbstractLinterTask;
 use GrumPHP\Task\Context\ContextInterface;
 use GrumPHP\Task\Context\GitPreCommitContext;
 use GrumPHP\Task\Context\RunContext;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Class XmlLint
@@ -20,6 +20,7 @@ class XliffLint extends AbstractLinterTask
      * @var XliffLinter
      */
     protected $linter;
+
     /**
      * @return string
      */
@@ -27,26 +28,32 @@ class XliffLint extends AbstractLinterTask
     {
         return 'xlifflint';
     }
+
     /**
-     * @return OptionsResolver
+     * @return \Symfony\Component\OptionsResolver\OptionsResolver
+     * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
+     * @throws \Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException
      */
     public function getConfigurableOptions()
     {
         $resolver = parent::getConfigurableOptions();
-        $resolver->setDefaults(array(
-            'load_from_net' => false,
-            'x_include' => false,
-            'dtd_validation' => false,
-            'scheme_validation' => false,
-            'triggered_by' => array('xlf'),
-        ));
-        $resolver->addAllowedTypes('load_from_net', array('bool'));
-        $resolver->addAllowedTypes('x_include', array('bool'));
-        $resolver->addAllowedTypes('dtd_validation', array('bool'));
-        $resolver->addAllowedTypes('scheme_validation', array('bool'));
-        $resolver->addAllowedTypes('triggered_by', array('array'));
+        $resolver->setDefaults(
+            [
+                'load_from_net' => false,
+                'x_include' => false,
+                'dtd_validation' => false,
+                'scheme_validation' => false,
+                'triggered_by' => ['xlf'],
+            ]
+        );
+        $resolver->addAllowedTypes('load_from_net', ['bool']);
+        $resolver->addAllowedTypes('x_include', ['bool']);
+        $resolver->addAllowedTypes('dtd_validation', ['bool']);
+        $resolver->addAllowedTypes('scheme_validation', ['bool']);
+        $resolver->addAllowedTypes('triggered_by', ['array']);
         return $resolver;
     }
+
     /**
      * {@inheritdoc}
      */
@@ -54,6 +61,7 @@ class XliffLint extends AbstractLinterTask
     {
         return ($context instanceof GitPreCommitContext || $context instanceof RunContext);
     }
+
     /**
      * {@inheritdoc}
      */
@@ -74,7 +82,7 @@ class XliffLint extends AbstractLinterTask
             return TaskResult::createFailed($this, $context, $e->getMessage());
         }
         if ($lintErrors->count()) {
-            return TaskResult::createFailed($this, $context, (string) $lintErrors);
+            return TaskResult::createFailed($this, $context, (string)$lintErrors);
         }
         return TaskResult::createPassed($this, $context);
     }

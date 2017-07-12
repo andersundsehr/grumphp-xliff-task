@@ -12,7 +12,7 @@ parameters:
             scheme_validation: false
             triggered_by: [xlf]
     extensions:
-        - AUS\GrumPHPXliffTask\ExtensionLoader
+        - PLUS\GrumPHPXliffTask\ExtensionLoader
 ````
 ### composer:
 ``composer require --dev andersundsehr/grumphp-xliff-task``

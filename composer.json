@@ -1,13 +1,13 @@
 {
-    "name": "andersundsehr/grumphp-xliff-task",
+    "name": "pluswerk/grumphp-xliff-task",
     "description": "GrumPHP task to lint xlf/xliff Files",
     "type": "library",
-    "license": "Beerware",
+    "license": "LGPL-3.0",
     "authors": [
         {
             "name": "Matthias Vogel",
-            "email": "m.vogel@andersundsehr.com",
-            "homepage": "http://andersundsehr.com"
+            "email": "matthias.vogel@pluswerk.ag",
+            "homepage": "http://pluswerk.ag"
         }
     ],
     "config":{
@@ -16,11 +16,11 @@
         }
     },
     "support": {
-        "issues": "https://github.com/andersundsehr/grumphp-bom-task/issues"
+        "issues": "https://github.com/pluswerk/grumphp-bom-task/issues"
     },
     "autoload":{
         "psr-4":{
-            "AUS\\GrumPHPXliffTask\\": "src/"
+            "PLUS\\GrumPHPXliffTask\\": "src/"
         }
     },
     "require": {

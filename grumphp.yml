@@ -28,4 +28,4 @@ parameters:
         yamllint: ~
         xlifflint: ~
     extensions:
-        - AUS\GrumPHPXliffTask\ExtensionLoader
+        - PLUS\GrumPHPXliffTask\ExtensionLoader
