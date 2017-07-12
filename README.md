@@ -19,7 +19,7 @@ parameters:
         - PLUS\GrumPHPXliffTask\ExtensionLoader
 ````
 ### upgrade from andersundsehr/gurmphp-xliff-task
-If you come from [andersundsehr/grumphp-xliff-config](https://hitgub.com/andersundsehr/grumphp-xliff-config), change the extensions Loader path in the grumphp.yml file. 
+If you come from [andersundsehr/grumphp-xliff-task](https://github.com/andersundsehr/grumphp-xliff-task), change the extensions Loader path in the grumphp.yml file. 
 ````yml
         - AUS\GrumPHPXliffTask\ExtensionLoader
 ````
@@ -30,4 +30,4 @@ to:
 ````
 
 ### composer:
-``composer require --dev andersundsehr/grumphp-xliff-task``
+``composer require --dev pluswerk/grumphp-xliff-task``
