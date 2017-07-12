@@ -10,7 +10,7 @@
             "homepage": "http://pluswerk.ag"
         }
     ],
-    "config":{
+    "config": {
         "platform":{
             "php": "5.6"
         }
@@ -18,14 +18,14 @@
     "support": {
         "issues": "https://github.com/pluswerk/grumphp-bom-task/issues"
     },
-    "autoload":{
-        "psr-4":{
+    "autoload": {
+        "psr-4": {
             "PLUS\\GrumPHPXliffTask\\": "src/"
         }
     },
     "require": {
         "php": ">=5.6",
-        "phpro/grumphp": ">=0.9 || >= 0.11.1"
+        "phpro/grumphp": "^0.11.1"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "2.6.*"
