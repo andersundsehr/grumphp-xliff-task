@@ -16,7 +16,7 @@
         }
     },
     "support": {
-        "issues": "https://github.com/pluswerk/grumphp-bom-task/issues"
+        "issues": "https://github.com/pluswerk/grumphp-xliff-task/issues"
     },
     "autoload": {
         "psr-4": {
