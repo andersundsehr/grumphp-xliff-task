@@ -2,6 +2,7 @@
 [![Packagist](https://img.shields.io/packagist/l/pluswerk/grumphp-xliff-task.svg?style=flat-square)](https://opensource.org/licenses/LGPL-3.0)
 [![Travis](https://img.shields.io/travis/Kanti/LJSON.svg?style=flat-square)](https://travis-ci.org/Pluswerk/grumphp-xliff-task)
 [![Code Climate](https://img.shields.io/codeclimate/github/pluswerk/grumphp-xliff-task.svg?style=flat-square)](https://codeclimate.com/github/pluswerk/grumphp-xliff-task)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/0dffac96-6dda-48b1-b0a4-452bddaffc50.svg?style=flat-square)](https://insight.sensiolabs.com/projects/0dffac96-6dda-48b1-b0a4-452bddaffc50)
 # grumphp-xliff-task
 GrumPHP task to lint xlf/xliff Files
 ### grumphp.yml:
