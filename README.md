@@ -3,10 +3,14 @@
 [![Travis](https://img.shields.io/travis/Kanti/LJSON.svg?style=flat-square)](https://travis-ci.org/Pluswerk/grumphp-xliff-task)
 [![Code Climate](https://img.shields.io/codeclimate/github/pluswerk/grumphp-xliff-task.svg?style=flat-square)](https://codeclimate.com/github/pluswerk/grumphp-xliff-task)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/0dffac96-6dda-48b1-b0a4-452bddaffc50.svg?style=flat-square)](https://insight.sensiolabs.com/projects/0dffac96-6dda-48b1-b0a4-452bddaffc50)
+
 # grumphp-xliff-task
+
 GrumPHP task to lint xlf/xliff Files
+
 ### grumphp.yml:
-````yml
+
+```yml
 parameters:
     tasks:
         xlifflint:
@@ -18,17 +22,24 @@ parameters:
             triggered_by: [xlf]
     extensions:
         - PLUS\GrumPHPXliffTask\ExtensionLoader
-````
-### upgrade from andersundsehr/gurmphp-xliff-task
-If you come from [andersundsehr/grumphp-xliff-task](https://github.com/andersundsehr/grumphp-xliff-task), change the extensions Loader path in the grumphp.yml file. 
-````yml
-        - AUS\GrumPHPXliffTask\ExtensionLoader
-````
-from:
-to:
-````yml
-        - PLUS\GrumPHPXliffTask\ExtensionLoader
-````
+```
 
-### composer:
+### upgrade from andersundsehr/gurmphp-xliff-task
+
+If you come from [andersundsehr/grumphp-xliff-task](https://github.com/andersundsehr/grumphp-xliff-task), change the extensions Loader path in the grumphp.yml file. 
+
+from:
+
+```yml
+        - AUS\GrumPHPXliffTask\ExtensionLoader
+```
+
+to:
+
+```yml
+        - PLUS\GrumPHPXliffTask\ExtensionLoader
+```
+
+### Composer
+
 ``composer require --dev pluswerk/grumphp-xliff-task``
