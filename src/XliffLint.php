@@ -1,5 +1,4 @@
 <?php
-
 namespace PLUS\GrumPHPXliffTask;
 
 use GrumPHP\Exception\RuntimeException;
