@@ -2,7 +2,7 @@
     "name": "pluswerk/grumphp-xliff-task",
     "description": "GrumPHP task to lint xlf/xliff Files",
     "type": "library",
-    "license": "LGPL-3.0",
+    "license": "LGPL-3.0-or-later",
     "authors": [
         {
             "name": "Matthias Vogel",
