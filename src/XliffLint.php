@@ -1,39 +1,27 @@
 <?php
+
 namespace PLUS\GrumPHPXliffTask;
 
 use GrumPHP\Exception\RuntimeException;
 use GrumPHP\Runner\TaskResult;
+use GrumPHP\Runner\TaskResultInterface;
 use GrumPHP\Task\AbstractLinterTask;
 use GrumPHP\Task\Context\ContextInterface;
 use GrumPHP\Task\Context\GitPreCommitContext;
 use GrumPHP\Task\Context\RunContext;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/**
- * Class XmlLint
- *
- * @package GrumPHP\Task
- */
 class XliffLint extends AbstractLinterTask
 {
-    /**
-     * @var XliffLinter
-     */
+    /** @var XliffLinter */
     protected $linter;
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return 'xlifflint';
     }
 
-    /**
-     * @return \Symfony\Component\OptionsResolver\OptionsResolver
-     * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
-     * @throws \Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException
-     */
-    public function getConfigurableOptions()
+    public function getConfigurableOptions(): OptionsResolver
     {
         $resolver = parent::getConfigurableOptions();
         $resolver->setDefaults(
@@ -53,18 +41,12 @@ class XliffLint extends AbstractLinterTask
         return $resolver;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function canRunInContext(ContextInterface $context)
+    public function canRunInContext(ContextInterface $context): bool
     {
         return ($context instanceof GitPreCommitContext || $context instanceof RunContext);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function run(ContextInterface $context)
+    public function run(ContextInterface $context): TaskResultInterface
     {
         $config = $this->getConfiguration();
         $files = $context->getFiles()->extensions($config['triggered_by']);
