@@ -22,7 +22,7 @@ parameters:
         jsonlint:
             detect_key_conflicts: true
         phpcs:
-            standard: "PSR2"
+            standard: "PSR12"
             warning_severity: 900000
             tab_width: 4
         yamllint: ~

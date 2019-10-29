@@ -1,13 +1,15 @@
 <?php
+
 namespace PLUS\GrumPHPXliffTask;
 
+use GrumPHP\Collection\LintErrorsCollection;
 use GrumPHP\Linter\LintError;
 use GrumPHP\Linter\Xml\XmlLinter;
 use SplFileInfo;
 
 class XliffLinter extends XmlLinter
 {
-    public function lint(SplFileInfo $file)
+    public function lint(SplFileInfo $file): LintErrorsCollection
     {
         $lintErrors = parent::lint($file);
         if ($lintErrors->count()) {
