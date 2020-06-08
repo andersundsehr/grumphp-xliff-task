@@ -2,6 +2,7 @@
 
 namespace PLUS\GrumPHPXliffTask;
 
+use DOMDocument;
 use GrumPHP\Collection\LintErrorsCollection;
 use GrumPHP\Linter\LintError;
 use GrumPHP\Linter\Xml\XmlLinter;
@@ -15,7 +16,7 @@ class XliffLinter extends XmlLinter
         if ($lintErrors->count()) {
             return $lintErrors;
         }
-        $document = new \DOMDocument();
+        $document = new DOMDocument();
         if (!$document->load($file->getPathname())) {
             $lintErrors->add(
                 new LintError(
@@ -29,7 +30,7 @@ class XliffLinter extends XmlLinter
         }
 
         $rootElement = $document->documentElement;
-        /** @var \DOMElement[] $fileTags */
+        /** @var DOMElement[] $fileTags */
         $fileTags = $rootElement->getElementsByTagName('file');
         foreach ($fileTags as $fileTag) {
             if ($fileTag->attributes->getNamedItem('target')) {
@@ -44,7 +45,7 @@ class XliffLinter extends XmlLinter
                 continue;
             }
             if ($fileTag->attributes->getNamedItem('target-language')) {
-                /** @var \DOMElement[] $transUnitTags */
+                /** @var DOMElement[] $transUnitTags */
                 $transUnitTags = $fileTag->getElementsByTagName('trans-unit');
                 foreach ($transUnitTags as $transUnitTag) {
                     if (!$transUnitTag->attributes->getNamedItem('id')) {
@@ -69,7 +70,7 @@ class XliffLinter extends XmlLinter
                     }
                 }
             } else {
-                /** @var \DOMElement[] $transUnitTags */
+                /** @var DOMElement[] $transUnitTags */
                 $transUnitTags = $fileTag->getElementsByTagName('trans-unit');
                 foreach ($transUnitTags as $transUnitTag) {
                     if (!$transUnitTag->attributes->getNamedItem('id')) {

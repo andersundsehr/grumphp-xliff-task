@@ -12,10 +12,9 @@ class ExtensionLoader implements ExtensionInterface
     {
         $container->register('linter.xlifflint', XliffLinter::class);
         return $container->register('task.xlifflint', XliffLint::class)
-            ->addArgument(new Reference('config'))
             ->addArgument(new Reference('linter.xlifflint'))
             ->addArgument(new Reference('process_builder'))
             ->addArgument(new Reference('formatter.raw_process'))
-            ->addTag('grumphp.task', ['config' => 'xlifflint']);
+            ->addTag('grumphp.task', ['task' => 'xlifflint']);
     }
 }
