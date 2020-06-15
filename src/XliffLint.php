@@ -16,12 +16,7 @@ class XliffLint extends AbstractLinterTask
     /** @var XliffLinter */
     protected $linter;
 
-    public function getName(): string
-    {
-        return 'xlifflint';
-    }
-
-    public function getConfigurableOptions(): OptionsResolver
+    public static function getConfigurableOptions(): OptionsResolver
     {
         $resolver = parent::getConfigurableOptions();
         $resolver->setDefaults(
@@ -48,15 +43,15 @@ class XliffLint extends AbstractLinterTask
 
     public function run(ContextInterface $context): TaskResultInterface
     {
-        $config = $this->getConfiguration();
-        $files = $context->getFiles()->extensions($config['triggered_by']);
+        $options = $this->getConfig()->getOptions();
+        $files = $context->getFiles()->extensions($options['triggered_by']);
         if (0 === count($files)) {
             return TaskResult::createSkipped($this, $context);
         }
-        $this->linter->setLoadFromNet($config['load_from_net']);
-        $this->linter->setXInclude($config['x_include']);
-        $this->linter->setDtdValidation($config['dtd_validation']);
-        $this->linter->setSchemeValidation($config['scheme_validation']);
+        $this->linter->setLoadFromNet($options['load_from_net']);
+        $this->linter->setXInclude($options['x_include']);
+        $this->linter->setDtdValidation($options['dtd_validation']);
+        $this->linter->setSchemeValidation($options['scheme_validation']);
         try {
             $lintErrors = $this->lint($files);
         } catch (RuntimeException $e) {
