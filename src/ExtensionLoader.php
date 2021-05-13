@@ -8,10 +8,10 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class ExtensionLoader implements ExtensionInterface
 {
-    public function load(ContainerBuilder $container)
+    public function load(ContainerBuilder $container): void
     {
         $container->register('linter.xlifflint', XliffLinter::class);
-        return $container->register('task.xlifflint', XliffLint::class)
+        $container->register('task.xlifflint', XliffLint::class)
             ->addArgument(new Reference('linter.xlifflint'))
             ->addArgument(new Reference('process_builder'))
             ->addArgument(new Reference('formatter.raw_process'))
