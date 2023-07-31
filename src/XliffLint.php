@@ -6,6 +6,7 @@ use GrumPHP\Exception\RuntimeException;
 use GrumPHP\Runner\TaskResult;
 use GrumPHP\Runner\TaskResultInterface;
 use GrumPHP\Task\AbstractLinterTask;
+use GrumPHP\Task\Config\ConfigOptionsResolver;
 use GrumPHP\Task\Context\ContextInterface;
 use GrumPHP\Task\Context\GitPreCommitContext;
 use GrumPHP\Task\Context\RunContext;
@@ -16,9 +17,9 @@ class XliffLint extends AbstractLinterTask
     /** @var XliffLinter */
     protected $linter;
 
-    public static function getConfigurableOptions(): OptionsResolver
+    public static function getConfigurableOptions(): ConfigOptionsResolver
     {
-        $resolver = parent::getConfigurableOptions();
+        $resolver = parent::sharedOptionsResolver();
         $resolver->setDefaults(
             [
                 'load_from_net' => false,
@@ -33,7 +34,7 @@ class XliffLint extends AbstractLinterTask
         $resolver->addAllowedTypes('dtd_validation', ['bool']);
         $resolver->addAllowedTypes('scheme_validation', ['bool']);
         $resolver->addAllowedTypes('triggered_by', ['array']);
-        return $resolver;
+        return ConfigOptionsResolver::fromOptionsResolver($resolver);
     }
 
     public function canRunInContext(ContextInterface $context): bool

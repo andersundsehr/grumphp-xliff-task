@@ -1,20 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PLUS\GrumPHPXliffTask;
 
 use GrumPHP\Extension\ExtensionInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
 
 class ExtensionLoader implements ExtensionInterface
 {
-    public function load(ContainerBuilder $container): void
+    public function imports(): iterable
     {
-        $container->register('linter.xlifflint', XliffLinter::class);
-        $container->register('task.xlifflint', XliffLint::class)
-            ->addArgument(new Reference('linter.xlifflint'))
-            ->addArgument(new Reference('process_builder'))
-            ->addArgument(new Reference('formatter.raw_process'))
-            ->addTag('grumphp.task', ['task' => 'xlifflint']);
+        yield __DIR__ . '/../Services.yaml';
     }
 }
