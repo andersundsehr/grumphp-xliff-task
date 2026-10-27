@@ -6,6 +6,7 @@ namespace PLUS\GrumPHPXliffTask;
 
 use DOMDocument;
 use DOMElement;
+use DOMNamedNodeMap;
 use GrumPHP\Collection\LintErrorsCollection;
 use GrumPHP\Linter\LintError;
 use GrumPHP\Linter\Xml\XmlLinter;
